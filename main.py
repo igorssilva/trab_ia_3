@@ -165,24 +165,24 @@ class ClassifyAnimals(KnowledgeEngine):
         self.declare(Fact(aks_repeat='S'))
 
     @Rule(Fact(branquea='N'), Fact(amamenta='N'), Fact(casca='S'), Fact(penas='S'), Fact(voa='S'))
-    def ask_voa_parado(self):
-        self.declare(Fact(voa_parado=input('O animal voa parado? ')))
+    def ask_polinizador(self):
+        self.declare(Fact(polinizador=input('O animal é polinizador? ')))
 
-    @Rule(Fact(branquea='N'), Fact(amamenta='N'), Fact(casca='S'), Fact(penas='S'), Fact(voa='S'), Fact(voa_parado='S'))
+    @Rule(Fact(branquea='N'), Fact(amamenta='N'), Fact(casca='S'), Fact(penas='S'), Fact(voa='S'), Fact(polinizador='S'))
     def e_beijaflor(self):
         print('O animal é um beija-flor.')
         self.declare(Fact(aks_repeat='S'))
 
-    @Rule(Fact(branquea='N'), Fact(amamenta='N'), Fact(casca='S'), Fact(penas='S'), Fact(voa='S'), Fact(voa_parado='N'))
+    @Rule(Fact(branquea='N'), Fact(amamenta='N'), Fact(casca='S'), Fact(penas='S'), Fact(voa='S'), Fact(polinizador='N'))
     def ask_caca_mar(self):
-        self.declare(Fact(caca_mar=input('O animal caça no mar? ')))
+        self.declare(Fact(caca_mar=input('O animal é marítimo? ')))
 
-    @Rule(Fact(branquea='N'), Fact(amamenta='N'), Fact(casca='S'), Fact(penas='S'), Fact(voa='S'), Fact(voa_parado='N'), Fact(caca_mar='S'))
+    @Rule(Fact(branquea='N'), Fact(amamenta='N'), Fact(casca='S'), Fact(penas='S'), Fact(voa='S'), Fact(polinizador='N'), Fact(caca_mar='S'))
     def e_gaivota(self):
         print('O animal é uma gaivota.')
         self.declare(Fact(aks_repeat='S'))
 
-    @Rule(Fact(branquea='N'), Fact(amamenta='N'), Fact(casca='S'), Fact(penas='S'), Fact(voa='S'), Fact(voa_parado='N'), Fact(caca_mar='N'))
+    @Rule(Fact(branquea='N'), Fact(amamenta='N'), Fact(casca='S'), Fact(penas='S'), Fact(voa='S'), Fact(polinizador='N'), Fact(caca_mar='N'))
     def e_gaviao(self):
         print('O animal é um gavião.')
         self.declare(Fact(aks_repeat='S'))
